@@ -337,7 +337,7 @@ function M.open_file(mode, filename)
   local win_ids = api.nvim_tabpage_list_wins(tabpage)
 
   local target_winid
-  if vim.g.nvim_tree_disable_window_picker == 1 then
+  if vim.g.nvim_tree_disable_window_picker == 1 or mode == "edit_no_picker" then
     target_winid = M.Tree.target_winid
   else
     target_winid = M.pick_window()
